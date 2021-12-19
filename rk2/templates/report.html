@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    Файлы
+{% endblock %}
+{% block content %}
+    <h2>Список всех файлов:</h2>
+    <ul>
+        {% for file in files %}
+        <hr>
+        <li>
+            <div>
+                Название: {{file.name}}{{file.extension}} <br>
+                Размер: {{file.size}} Мб <br>
+                Каталог: {{file.catalog.name}}
+            </div>
+        </li>
+        {% endfor %}
+        <hr>
+    </ul>
+    <i>Время формирования отчёта: </i>{{date}}
+{% endblock %}

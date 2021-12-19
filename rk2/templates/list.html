@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{entity}}
+{% endblock %}
+{% block content %}
+    <h2>Сущность <i>{{entity}}</i></h2>
+    {% if entity == 'Catalog' %}
+        <a href='/catalog/create'>Добавить элемент</a>
+    {% endif %}
+    {% if entity == 'File' %}
+        <a href='/file/create'>Добавить элемент</a>
+    {% endif %}
+    <p>Список элементов:</p>
+    <ul>
+        {% for elem in objects %}
+            <hr>
+            <li>
+                {% if entity == 'Catalog' %}
+                    {{elem.name}}<br>
+                    <a href='{% url "catalog_update" elem.id %}'>Изменить</a>
+                    <a href='{% url "catalog_delete" elem.id %}'>Удалить</a>
+                {% endif %}
+                {% if entity == 'File' %}
+                    {{elem.name}}{{elem.extension}} {{elem.size}}Мб <br>
+                    <a href='{% url "file_update" elem.id %}'>Изменить</a>
+                    <a href='{% url "file_delete" elem.id %}'>Удалить</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+        <hr>
+    </ul>
+{% endblock %}
