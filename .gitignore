@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 .idea
+.~lock.Никитина ЛР3.docx#
 
 # C extensions
 *.so
@@ -106,6 +107,7 @@ celerybeat.pid
 .env
 .venv
 env/
+*/venv/
 venv/
 ENV/
 env.bak/
